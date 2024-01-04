@@ -14,14 +14,28 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
+  todo,
+  inProgress,
+  done,
 }: {
   children: React.ReactNode
+  todo: React.ReactNode
+  inProgress: React.ReactNode
+  done: React.ReactNode
 }) {
   return (
     <html lang="en">
       <body className={inter.className}>
         <NavBar />
-        {children}
+        <main className="flex min-h-screen justify-center bg-blue-100 p-24 text-black">
+          <div className="z-10 w-full max-w-5xl text-sm ">
+            <div className="grid grid-cols-12 justify-items-start gap-3">
+              {todo}
+              {inProgress}
+              {done}
+            </div>
+          </div>
+        </main>
       </body>
     </html>
   )
